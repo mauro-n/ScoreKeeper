@@ -1,46 +1,32 @@
-function reset() {
-    score1 = 0, score2 = 0;
-    placar1.innerText = score1;
-    placar2.innerText = score2;
+p1 = {
+    score: 0,
+    button: document.querySelector('#p1btn'),
+    placar: document.querySelector('#scorep1'),
+
+}
+p2 = {
+    score: 0,
+    button: document.querySelector('#p2btn'),
+    placar: document.querySelector('#scorep2'),
+
+}
+function reset(player) {
+    player.score = 0;
+    player.placar.innerText = 0;
     isGameOver = false;
-    for (let i=0; i<allBtn.length;i++){
-        allBtn[i].disabled = false;
-    }
-    placar1.classList.remove('winner', 'looser')
-    placar2.classList.remove('winner', 'looser')
+    player.button.disabled = false;
+    player.placar.classList.remove('winner', 'looser');
 }
-
-function p2btnfunc () {
-    if (!isGameOver) {
-        score2++;
-        placar2.innerText = score2;
-        if (score2 == winningScore) {
+function updateScores(player, opponent){
+    if (!isGameOver){
+        player.score += 1;
+        player.placar.innerText = player.score;
+        if (player.score == winningScore){
             isGameOver = true;
-            placar2.classList.add('winner')
-            placar1.classList.add('looser')
-            for (let i=0; i<allBtn.length-1;i++){
-                allBtn[i].disabled = true;
-            }
+            player.placar.classList.add('winner');
+            opponent.placar.classList.add('looser');
+            player.button.disabled = true;
+            opponent.button.disabled = true;
         }
     }
-}
-
-function p1btnfunc() {
-    if (!isGameOver) {
-        score1++;
-        placar1.innerText = score1;
-        if (score1 == winningScore) {
-            isGameOver = true;
-            placar1.classList.add('winner')
-            placar2.classList.add('looser')
-            for (let i=0; i<allBtn.length-1;i++){
-                allBtn[i].disabled = true;
-            }
-        }
-    }
-}
-
-function changeOpt() {
-    winningScore = parseInt(this.value)
-    reset();
 }

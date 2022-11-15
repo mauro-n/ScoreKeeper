@@ -14,3 +14,9 @@ div {
     font-size: 30px;
     margin: 10px;
 }
+.winner {
+    color: green;
+}
+.looser {
+    color: red;
+}

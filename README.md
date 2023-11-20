@@ -1,4 +1,4 @@
 # ScoreKeeper
 
-An exercise "ping-pong" game;
-Using simple html, css, js;
+Um jogo de "ping-pong" feito para apresentação para turma,
+com intuito de introduzir HTML / CSS e JS.
